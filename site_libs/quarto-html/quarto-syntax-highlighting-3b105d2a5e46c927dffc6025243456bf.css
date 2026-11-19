@@ -1,0 +1,125 @@
+/* quarto syntax highlight colors */
+:root {
+  --quarto-hl-kw-color: #1F5A43;
+  --quarto-hl-cf-color: #1F5A43;
+  --quarto-hl-bu-color: #1F5A43;
+  --quarto-hl-fu-color: #7A5A24;
+  --quarto-hl-va-color: #8C3B2E;
+  --quarto-hl-dt-color: #7A5A24;
+  --quarto-hl-dv-color: #8C5A1E;
+  --quarto-hl-bn-color: #8C5A1E;
+  --quarto-hl-fl-color: #8C5A1E;
+  --quarto-hl-cn-color: #8C5A1E;
+  --quarto-hl-st-color: #3D6B2F;
+  --quarto-hl-vs-color: #3D6B2F;
+  --quarto-hl-ss-color: #3D6B2F;
+  --quarto-hl-ch-color: #3D6B2F;
+  --quarto-hl-co-color: #6B7A70;
+  --quarto-hl-do-color: #6B7A70;
+  --quarto-hl-op-color: #152820;
+  --quarto-hl-im-color: #1F5A43;
+  --quarto-hl-at-color: #7A5A24;
+  --quarto-hl-ot-color: #152820;
+  --quarto-hl-er-color: #A12B2B;
+}
+
+/* other quarto variables */
+:root {
+  --quarto-font-monospace: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+code span.kw {
+  color: #1F5A43;
+  font-weight: bold;
+}
+
+code span.cf {
+  color: #1F5A43;
+  font-weight: bold;
+}
+
+code span.bu {
+  color: #1F5A43;
+}
+
+code span.fu {
+  color: #7A5A24;
+}
+
+code span.va {
+  color: #8C3B2E;
+}
+
+code span.dt {
+  color: #7A5A24;
+}
+
+code span.dv {
+  color: #8C5A1E;
+}
+
+code span.bn {
+  color: #8C5A1E;
+}
+
+code span.fl {
+  color: #8C5A1E;
+}
+
+code span.cn {
+  color: #8C5A1E;
+}
+
+code span.st {
+  color: #3D6B2F;
+}
+
+code span.vs {
+  color: #3D6B2F;
+}
+
+code span.ss {
+  color: #3D6B2F;
+}
+
+code span.ch {
+  color: #3D6B2F;
+}
+
+code span.co {
+  color: #6B7A70;
+  font-style: italic;
+}
+
+code span.do {
+  color: #6B7A70;
+  font-style: italic;
+}
+
+code span.op {
+  color: #152820;
+}
+
+code span.im {
+  color: #1F5A43;
+  font-weight: bold;
+}
+
+code span.at {
+  color: #7A5A24;
+}
+
+code span.ot {
+  color: #152820;
+}
+
+code span.er {
+  color: #A12B2B;
+  font-weight: bold;
+}
+
+.prevent-inlining {
+  content: "</";
+}
+
+/*# sourceMappingURL=1a6170023bbf0aaf99dfa60cfd22cec5.css.map */

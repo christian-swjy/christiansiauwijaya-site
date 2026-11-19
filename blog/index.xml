@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Christian Siauwijaya</title>
+<link>https://christiansiauwijaya.com/blog/</link>
+<atom:link href="https://christiansiauwijaya.com/blog/index.xml" rel="self" type="application/rss+xml"/>
+<description>Christian Siauwijaya, macro-financial economist based in Jakarta.</description>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Wed, 18 Nov 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Sample post: Python and Stata side by side</title>
+  <link>https://christiansiauwijaya.com/blog/posts/2026-11-hello-python-stata/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This is a sample post. Delete this folder once the first real post is up.</p>
+<section id="python" class="level2">
+<h2 data-anchor-id="python">Python</h2>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Quarterly real GDP growth, year on year (%)</span></span>
+<span id="cb1-4">gdp <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.Series(</span>
+<span id="cb1-5">    [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.1</span>],</span>
+<span id="cb1-6">    index<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>pd.period_range(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"2025Q1"</span>, periods<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, freq<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Q"</span>),</span>
+<span id="cb1-7">    name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"gdp_yoy"</span>,</span>
+<span id="cb1-8">)</span>
+<span id="cb1-9"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(gdp.rolling(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>).mean().<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>))</span></code></pre></div>
+</section>
+<section id="stata" class="level2">
+<h2 data-anchor-id="stata">Stata</h2>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">* Local projection of credit growth on a policy-rate shock</span></span>
+<span id="cb2-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">use</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"data/macro_panel.dta"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">clear</span></span>
+<span id="cb2-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">xtset</span> country quarter</span>
+<span id="cb2-4"></span>
+<span id="cb2-5"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">forvalues</span> h <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span> {</span>
+<span id="cb2-6">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">quietly</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">reghdfe</span> F<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">`h'</span>.credit_growth rate_shock L(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>).credit_growth<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">///</span></span>
+<span id="cb2-7">        absorb(country quarter) vce(cluster country)</span>
+<span id="cb2-8">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">display</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"h = </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">`h'</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">: "</span> %<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>.3f <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">_b</span>[rate_shock]</span>
+<span id="cb2-9">}</span></code></pre></div>
+<p>Code blocks are shown, not run, so the deploy server never needs Python or Stata. To run Python and publish its output, change a block’s fence to <code>{python}</code> and render locally; <code>freeze: auto</code> stores the result.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>python</category>
+  <category>stata</category>
+  <category>methods</category>
+  <guid>https://christiansiauwijaya.com/blog/posts/2026-11-hello-python-stata/</guid>
+  <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://christiansiauwijaya.com/blog/posts/2026-11-hello-python-stata/featured.svg" medium="image" type="image/svg+xml"/>
+</item>
+</channel>
+</rss>
